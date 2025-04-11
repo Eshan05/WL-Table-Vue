@@ -19,6 +19,29 @@ const createChannelLink = (channelUrl: string) => {
 }
 
 function separateTitle(title: string) {
+  const pattern = new RegExp(
+    "^(.+?)\\s+by\\s+(.+?)\\s+(\\d{1,3}(?:,\\d{3})*|\\d+)\\s+views\\s+(?:.*?\\s+ago\\s+)?(.+)$"
+  );
+  const match = title.match(pattern);
+
+  if (match) {
+    return {
+      title: match[1].trim(),
+      channel: match[2].trim(),
+      views: match[3].replace(",", ""), // Store views as plain number string
+      duration: match[4].trim(),
+    };
+  } else {
+    return {
+      title: title,
+      channel: null,
+      views: null,
+      duration: null,
+    };
+  }
+}
+
+function separateTitle1(title: string) {
   // First, remove the "ago" part and anything after it
   const titleWithoutAgo = title.replace(/(\d+ (second|minute|hour|day|week|month|year)s? ago.*)/i, '').trim();
 
@@ -119,13 +142,15 @@ export const columns: ColumnDef<VideoMetadata>[] = [
       }, [
         h('p', {
           class: 'line-clamp-1 max-w-xs font-medium',
-        }, s.videoTitle),
+        }, s.title),
         h('p', {
-          class: 'line-clamp-1 max-w-xs text-xs',
+          class: 'line-clamp-1 max-w-xs text-xs mt-0.5',
         }, [
-          h('span', s.creatorName || ''),
-          h(Badge, s.views || ''),
-          h(Badge, s.duration || '')
+          h(Badge, { variant: 'outline', size: 'sm' }, s.channel || ''),
+          h('span', '  '),
+          h('span', s.views || ''),
+          h('span', ' | '),
+          h('span', s.duration || '')
         ]),
       ])
     },
