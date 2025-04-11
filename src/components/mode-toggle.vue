@@ -5,6 +5,13 @@ import { Icon } from '@iconify/vue'
 import { useColorMode } from '@vueuse/core'
 import { onMounted } from 'vue'
 
+const props = defineProps({
+  class: {
+    type: String,
+    default: ''
+  }
+})
+
 const mode = useColorMode({
   // disableTransition: false
 })
@@ -20,7 +27,7 @@ onMounted(() => {
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="outline">
+      <Button :class="props.class" variant="outline" size="icon">
         <Icon icon="radix-icons:moon"
           class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
         <Icon icon="radix-icons:sun"
