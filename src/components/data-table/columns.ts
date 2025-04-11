@@ -1,4 +1,4 @@
-import { h, type Component } from 'vue'
+import { h } from 'vue'
 import type { Column, ColumnDef } from '@tanstack/vue-table'
 import type { VideoMetadata } from '@/types'
 
@@ -18,6 +18,51 @@ const createChannelLink = (channelUrl: string) => {
   return '#';
 }
 
+function separateTitle(title: string) {
+  // First, remove the "ago" part and anything after it
+  const titleWithoutAgo = title.replace(/(\d+ (second|minute|hour|day|week|month|year)s? ago.*)/i, '').trim();
+
+  // Check if the title contains "by" to separate title and creator
+  if (titleWithoutAgo.includes(' by ')) {
+    const parts = titleWithoutAgo.split(' by ');
+    const videoTitle = parts[0].trim();
+    const creatorInfo = parts[1].trim();
+
+    // Further split creator info to get creator name, views, and duration
+    const creatorParts = creatorInfo.split(/(\d+,\d+|\d+) views/i); // Splits by views count
+    console.log(creatorParts)
+    const creatorName = creatorParts[0].trim();
+    const viewsAndDuration = creatorParts[1] ? creatorParts[1].trim() : '';
+
+    let views = '';
+    let duration = '';
+    console.log(viewsAndDuration)
+
+    if (viewsAndDuration) {
+      const viewsMatch = creatorInfo.match(/(\d+,\d+|\d+) views/i);
+      if (viewsMatch) {
+        views = viewsMatch[0];
+        const durationMatch = viewsAndDuration.replace(views, '').trim();
+        duration = durationMatch;
+      }
+    }
+
+    return {
+      videoTitle,
+      creatorName,
+      views,
+      duration,
+    };
+  } else {
+    // If "by" is not found, return the original title as videoTitle
+    return {
+      videoTitle: titleWithoutAgo,
+      creatorName: null,
+      views: null,
+      duration: null,
+    };
+  }
+}
 export const columns: ColumnDef<VideoMetadata>[] = [
   {
     id: 'select',
@@ -44,7 +89,7 @@ export const columns: ColumnDef<VideoMetadata>[] = [
   // --- Thumbnail Column ---
   {
     accessorKey: 'thumbnail_url',
-    header: () => h('div', { class: 'text-center' }, 'Thumbnail'), // Simple header
+    header: () => h('div', { class: 'text-center' }, 'Thumbnail'),
     cell: ({ row }) => h('a', {
       href: createYoutubeLink(row.original.video_id), // Link to video
       target: '_blank',
@@ -52,34 +97,43 @@ export const columns: ColumnDef<VideoMetadata>[] = [
     }, h('img', {
       src: row.getValue('thumbnail_url'),
       alt: `Thumbnail for ${row.original.title}`,
-      class: 'w-24 h-auto object-cover rounded block mx-auto', // Centered image
-      loading: 'lazy', // Lazy load thumbnails
+      class: 'w-24 h-auto object-cover rounded block mx-auto',
+      loading: 'lazy',
     })),
-    enableSorting: false, // Usually don't sort by thumbnail
-    enableHiding: true,  // Allow hiding
+    enableSorting: false,
+    enableHiding: true,
   },
 
   // --- Title Column ---
   {
     accessorKey: 'title',
-    // Use DataTableColumnHeader for sorting capabilities
     header: ({ column }) => h(DataTableColumnHeader, { column: column as Column<unknown, unknown>, title: 'Title' }),
     cell: ({ row }) => {
+      const s = separateTitle(row.getValue('title'));
       return h('a', {
         href: createYoutubeLink(row.original.video_id),
         target: '_blank',
         rel: 'noopener noreferrer',
-        class: 'block max-w-xs font-medium hover:underline line-clamp-3',
+        class: 'overflow-hidden hover:underline w-max break-words h-12',
         title: row.getValue('title'),
-      },
-        row.getValue('title')
-      )
+      }, [
+        h('p', {
+          class: 'line-clamp-1 max-w-xs font-medium',
+        }, s.videoTitle),
+        h('p', {
+          class: 'line-clamp-1 max-w-xs text-xs',
+        }, [
+          h('span', s.creatorName || ''),
+          h(Badge, s.views || ''),
+          h(Badge, s.duration || '')
+        ]),
+      ])
     },
     filterFn: (row, id, value) => {
       return (row.getValue(id) as string).toLowerCase().includes(String(value).toLowerCase());
     },
     enableSorting: true,
-    enableHiding: false,
+    enableHiding: true,
   },
 
   // --- Length Column ---
@@ -88,7 +142,6 @@ export const columns: ColumnDef<VideoMetadata>[] = [
     header: ({ column }) => h(DataTableColumnHeader, { column: column as Column<unknown, unknown>, title: 'Length' }),
     cell: ({ row }) => h('div', { class: 'w-20 text-right tabular-nums pr-2 font-mono' }, row.getValue('length')),
     enableSorting: true,
-    sortingFn: 'basic',
     enableMultiSort: true,
   },
 

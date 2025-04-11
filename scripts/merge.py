@@ -58,7 +58,7 @@ if __name__ == "__main__":
     with open("extracted_videos.json", "r") as f:
         videos = json.load(f)
 
-    with open("transformed_videos.json", "r") as f:
+    with open("transformed_videos.json", "r") as f: # Should only have title and categories and topics
         extra_info = json.load(f)
 
     # Create a lookup dictionary from the second file for quick access by title
