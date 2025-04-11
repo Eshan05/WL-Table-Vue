@@ -1,6 +1,5 @@
 <script setup lang="ts" generic="TData, TValue">
 import { type Component, computed, ref } from 'vue'
-import Fuse from 'fuse.js'
 import type { Column } from '@tanstack/vue-table'
 import { Check, PlusCircle } from 'lucide-vue-next'
 

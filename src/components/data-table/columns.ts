@@ -142,6 +142,7 @@ export const columns: ColumnDef<VideoMetadata>[] = [
       if (!filterValues || filterValues.length === 0) return true;
       return filterValues.some(filterVal => rowValues.includes(filterVal));
     },
+    enableHiding: true,
     enableSorting: false,
   },
   {
@@ -160,6 +161,7 @@ export const columns: ColumnDef<VideoMetadata>[] = [
       if (!filterValues || filterValues.length === 0) return true;
       return filterValues.some(filterVal => rowValues.includes(filterVal));
     },
+    enableHiding: true,
     enableSorting: false,
   },
   // --- Channel Column ---

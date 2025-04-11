@@ -12,6 +12,7 @@ import {
   DropdownMenuShortcut,
   DropdownMenuSub,
   DropdownMenuSubContent,
+  DropdownMenuSubItem,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
@@ -23,6 +24,21 @@ interface DataTableRowActionsProps {
 }
 
 const props = defineProps<DataTableRowActionsProps>()
+const row = computed(() => props.row)
+// console.log(row.value.original)
+
+// --- Helper function to create YouTube links ---
+const createYoutubeLink = (videoId: string) => `https://www.youtube.com/watch?v=${videoId}`;
+const createChannelLink = (channelUrl: string) => {
+  if (channelUrl && !channelUrl.startsWith('/channel/')) {
+    return `https://www.youtube.com${channelUrl}`; // Assumes handle like /@Handle
+  } else if (channelUrl) {
+    return `https://www.youtube.com${channelUrl}`; // Assumes /channel/ID
+  }
+  return '#';
+}
+
+const video = row.value.original
 
 </script>
 <template>
@@ -36,23 +52,29 @@ const props = defineProps<DataTableRowActionsProps>()
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end" class="w-[160px]">
-      <DropdownMenuItem>Go To Video</DropdownMenuItem>
-      <DropdownMenuItem>Go To Channel</DropdownMenuItem>
+      <DropdownMenuItem><a class="w-full" :href="createYoutubeLink(video.video_id)">Go To Video</a></DropdownMenuItem>
+      <DropdownMenuItem><a class="w-full" :href="createChannelLink(video.channel_url)">Go To Channel</a>
+      </DropdownMenuItem>
       <DropdownMenuSub>
         <DropdownMenuSubTrigger>
           <span>Categories</span>
         </DropdownMenuSubTrigger>
         <DropdownMenuPortal>
-          <DropdownMenuSubContent>
-            <DropdownMenuItem>
-              <span>1</span>
+          <DropdownMenuSubContent v-if="Array.isArray(video.categories)">
+            <DropdownMenuItem v-for="category in video.categories" :key="category">
+              {{ category }}
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <span>2</span>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <span>3</span>
+          </DropdownMenuSubContent>
+        </DropdownMenuPortal>
+      </DropdownMenuSub>
+      <DropdownMenuSub>
+        <DropdownMenuSubTrigger>
+          <span>Topics</span>
+        </DropdownMenuSubTrigger>
+        <DropdownMenuPortal>
+          <DropdownMenuSubContent v-if="Array.isArray(video.topics)">
+            <DropdownMenuItem v-for="topic in video.topics" :key="topic">
+              {{ topic }}
             </DropdownMenuItem>
           </DropdownMenuSubContent>
         </DropdownMenuPortal>

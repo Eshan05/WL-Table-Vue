@@ -67,7 +67,7 @@ onUnmounted(() => {
         <div class="flex items-center space-x-2">
           <p class="text-sm font-medium whitespace-nowrap"> Rows <span class="hidden sm:inline">per page</span>
           </p>
-          <Select :model-value="`${pageSize}`" @update:model-value="pageSize = $event">
+          <Select :model-value="`${pageSize}`" @update:model-value="pageSize = $event === null ? 10 : Number($event)">
             <SelectTrigger class="h-8 w-[70px]">
               <SelectValue :placeholder="`${pageSize}`" />
             </SelectTrigger>

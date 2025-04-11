@@ -5,8 +5,8 @@ type VideoMetadata = {
   set_video_id: string;
   channel_url: string;
   thumbnail_url: string;
-  categories: string[];
-  topics: string[];
+  categories?: string[];
+  topics?: string[];
 };
 
 export type { VideoMetadata };

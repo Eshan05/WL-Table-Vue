@@ -20,7 +20,7 @@ interface DataTableViewOptionsProps {
 
 const props = defineProps<DataTableViewOptionsProps>()
 
-const idToName = {
+const idToName: { [key: string]: string } = {
   thumbnail_url: 'Thumbnail',
   title: 'Title',
   length: 'Length',
