@@ -20,6 +20,15 @@ interface DataTableViewOptionsProps {
 
 const props = defineProps<DataTableViewOptionsProps>()
 
+const idToName = {
+  thumbnail_url: 'Thumbnail',
+  title: 'Title',
+  length: 'Length',
+  categories: 'Categories',
+  topics: 'Topics',
+  channel_url: 'Channel',
+}
+
 const columns = computed(() => props.table.getAllColumns()
   .filter(
     column =>
@@ -45,7 +54,7 @@ const columns = computed(() => props.table.getAllColumns()
         class="capitalize"
         :model-value="column.getIsVisible()"
         @update:model-value="(value) => column.toggleVisibility(!!value)">
-        {{ column.id }}
+        {{ idToName[column.id] }}
       </DropdownMenuCheckboxItem>
     </DropdownMenuContent>
   </DropdownMenu>
