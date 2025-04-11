@@ -118,6 +118,7 @@ function handleSelect(optionValue: string) {
           <CommandGroup>
             <CommandItem
               v-for="option in options"
+              class="py-1.5 px-3"
               :key="option.value"
               :value="option.label"
               @select="() => handleSelect(option.value)">

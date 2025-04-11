@@ -89,6 +89,7 @@ export const columns: ColumnDef<VideoMetadata>[] = [
     cell: ({ row }) => h('div', { class: 'w-20 text-right tabular-nums pr-2 font-mono' }, row.getValue('length')),
     enableSorting: true,
     sortingFn: 'basic',
+    enableMultiSort: true,
   },
 
   // --- Categories Column ---

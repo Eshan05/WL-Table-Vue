@@ -1,0 +1,950 @@
+[
+  {
+    "value": "2024",
+    "label": "2024"
+  },
+  {
+    "value": "2025",
+    "label": "2025"
+  },
+  {
+    "value": "AI",
+    "label": "AI"
+  },
+  {
+    "value": "ASMR",
+    "label": "ASMR"
+  },
+  {
+    "value": "Abstract Maths",
+    "label": "Abstract Maths"
+  },
+  {
+    "value": "Acoustic",
+    "label": "Acoustic"
+  },
+  {
+    "value": "Acting",
+    "label": "Acting"
+  },
+  {
+    "value": "Advice",
+    "label": "Advice"
+  },
+  {
+    "value": "Aerospace",
+    "label": "Aerospace"
+  },
+  {
+    "value": "Algebra",
+    "label": "Algebra"
+  },
+  {
+    "value": "Algorithms",
+    "label": "Algorithms"
+  },
+  {
+    "value": "Alternative Health",
+    "label": "Alternative Health"
+  },
+  {
+    "value": "Analogy",
+    "label": "Analogy"
+  },
+  {
+    "value": "Analysis",
+    "label": "Analysis"
+  },
+  {
+    "value": "Anatomy",
+    "label": "Anatomy"
+  },
+  {
+    "value": "Animation",
+    "label": "Animation"
+  },
+  {
+    "value": "Anime",
+    "label": "Anime"
+  },
+  {
+    "value": "Astronomy",
+    "label": "Astronomy"
+  },
+  {
+    "value": "Atmosphere",
+    "label": "Atmosphere"
+  },
+  {
+    "value": "Backend",
+    "label": "Backend"
+  },
+  {
+    "value": "Beauty",
+    "label": "Beauty"
+  },
+  {
+    "value": "Best Practices",
+    "label": "Best Practices"
+  },
+  {
+    "value": "Biology",
+    "label": "Biology"
+  },
+  {
+    "value": "Bootleg",
+    "label": "Bootleg"
+  },
+  {
+    "value": "Business",
+    "label": "Business"
+  },
+  {
+    "value": "C++",
+    "label": "C++"
+  },
+  {
+    "value": "Calculus",
+    "label": "Calculus"
+  },
+  {
+    "value": "Career",
+    "label": "Career"
+  },
+  {
+    "value": "Challenge",
+    "label": "Challenge"
+  },
+  {
+    "value": "Classical Mechanics",
+    "label": "Classical Mechanics"
+  },
+  {
+    "value": "Classical Music",
+    "label": "Classical Music"
+  },
+  {
+    "value": "Collaboration",
+    "label": "Collaboration"
+  },
+  {
+    "value": "College",
+    "label": "College"
+  },
+  {
+    "value": "Combinatorics",
+    "label": "Combinatorics"
+  },
+  {
+    "value": "Communication",
+    "label": "Communication"
+  },
+  {
+    "value": "Comparison",
+    "label": "Comparison"
+  },
+  {
+    "value": "Competition",
+    "label": "Competition"
+  },
+  {
+    "value": "Competitive Programming",
+    "label": "Competitive Programming"
+  },
+  {
+    "value": "Compilation",
+    "label": "Compilation"
+  },
+  {
+    "value": "Compiler",
+    "label": "Compiler"
+  },
+  {
+    "value": "Computer Graphics",
+    "label": "Computer Graphics"
+  },
+  {
+    "value": "Computer Science",
+    "label": "Computer Science"
+  },
+  {
+    "value": "Concept",
+    "label": "Concept"
+  },
+  {
+    "value": "Conspiracy",
+    "label": "Conspiracy"
+  },
+  {
+    "value": "Controversial",
+    "label": "Controversial"
+  },
+  {
+    "value": "Cosmology",
+    "label": "Cosmology"
+  },
+  {
+    "value": "Course",
+    "label": "Course"
+  },
+  {
+    "value": "Cover Song",
+    "label": "Cover Song"
+  },
+  {
+    "value": "Creative",
+    "label": "Creative"
+  },
+  {
+    "value": "Creativity",
+    "label": "Creativity"
+  },
+  {
+    "value": "Crime",
+    "label": "Crime"
+  },
+  {
+    "value": "Critique",
+    "label": "Critique"
+  },
+  {
+    "value": "Culture",
+    "label": "Culture"
+  },
+  {
+    "value": "Customization",
+    "label": "Customization"
+  },
+  {
+    "value": "DIY",
+    "label": "DIY"
+  },
+  {
+    "value": "Data Structures",
+    "label": "Data Structures"
+  },
+  {
+    "value": "Databases",
+    "label": "Databases"
+  },
+  {
+    "value": "Dating",
+    "label": "Dating"
+  },
+  {
+    "value": "Debate",
+    "label": "Debate"
+  },
+  {
+    "value": "Debugging",
+    "label": "Debugging"
+  },
+  {
+    "value": "Debunking",
+    "label": "Debunking"
+  },
+  {
+    "value": "Demo",
+    "label": "Demo"
+  },
+  {
+    "value": "Derivation",
+    "label": "Derivation"
+  },
+  {
+    "value": "Design",
+    "label": "Design"
+  },
+  {
+    "value": "Design Patterns",
+    "label": "Design Patterns"
+  },
+  {
+    "value": "DevOps",
+    "label": "DevOps"
+  },
+  {
+    "value": "Development",
+    "label": "Development"
+  },
+  {
+    "value": "Discovery",
+    "label": "Discovery"
+  },
+  {
+    "value": "Discussion",
+    "label": "Discussion"
+  },
+  {
+    "value": "Documentary",
+    "label": "Documentary"
+  },
+  {
+    "value": "Drawing",
+    "label": "Drawing"
+  },
+  {
+    "value": "Drums",
+    "label": "Drums"
+  },
+  {
+    "value": "Economics",
+    "label": "Economics"
+  },
+  {
+    "value": "Education",
+    "label": "Education"
+  },
+  {
+    "value": "Electromagnetism",
+    "label": "Electromagnetism"
+  },
+  {
+    "value": "Electronics",
+    "label": "Electronics"
+  },
+  {
+    "value": "Energy Methods",
+    "label": "Energy Methods"
+  },
+  {
+    "value": "Engineering",
+    "label": "Engineering"
+  },
+  {
+    "value": "Entertainment",
+    "label": "Entertainment"
+  },
+  {
+    "value": "Entrance Exam",
+    "label": "Entrance Exam"
+  },
+  {
+    "value": "Epic Music",
+    "label": "Epic Music"
+  },
+  {
+    "value": "Exercise",
+    "label": "Exercise"
+  },
+  {
+    "value": "Experiment",
+    "label": "Experiment"
+  },
+  {
+    "value": "Exploit",
+    "label": "Exploit"
+  },
+  {
+    "value": "Film",
+    "label": "Film"
+  },
+  {
+    "value": "Finance",
+    "label": "Finance"
+  },
+  {
+    "value": "Fitness",
+    "label": "Fitness"
+  },
+  {
+    "value": "Fluid Mechanics",
+    "label": "Fluid Mechanics"
+  },
+  {
+    "value": "Folklore",
+    "label": "Folklore"
+  },
+  {
+    "value": "Framework",
+    "label": "Framework"
+  },
+  {
+    "value": "Frontend",
+    "label": "Frontend"
+  },
+  {
+    "value": "Full-Stack",
+    "label": "Full-Stack"
+  },
+  {
+    "value": "Future",
+    "label": "Future"
+  },
+  {
+    "value": "Game Development",
+    "label": "Game Development"
+  },
+  {
+    "value": "Gaming",
+    "label": "Gaming"
+  },
+  {
+    "value": "Genetics",
+    "label": "Genetics"
+  },
+  {
+    "value": "Geometry",
+    "label": "Geometry"
+  },
+  {
+    "value": "Graph Theory",
+    "label": "Graph Theory"
+  },
+  {
+    "value": "Graphics",
+    "label": "Graphics"
+  },
+  {
+    "value": "Gravitation",
+    "label": "Gravitation"
+  },
+  {
+    "value": "Guide",
+    "label": "Guide"
+  },
+  {
+    "value": "Guitar",
+    "label": "Guitar"
+  },
+  {
+    "value": "Hacking",
+    "label": "Hacking"
+  },
+  {
+    "value": "Hardware",
+    "label": "Hardware"
+  },
+  {
+    "value": "Health",
+    "label": "Health"
+  },
+  {
+    "value": "History",
+    "label": "History"
+  },
+  {
+    "value": "Horror",
+    "label": "Horror"
+  },
+  {
+    "value": "Humor",
+    "label": "Humor"
+  },
+  {
+    "value": "Incel Culture",
+    "label": "Incel Culture"
+  },
+  {
+    "value": "Innovation",
+    "label": "Innovation"
+  },
+  {
+    "value": "Instruments",
+    "label": "Instruments"
+  },
+  {
+    "value": "Internet",
+    "label": "Internet"
+  },
+  {
+    "value": "Internet Culture",
+    "label": "Internet Culture"
+  },
+  {
+    "value": "Interview",
+    "label": "Interview"
+  },
+  {
+    "value": "Introduction",
+    "label": "Introduction"
+  },
+  {
+    "value": "Intuition",
+    "label": "Intuition"
+  },
+  {
+    "value": "JavaScript",
+    "label": "JavaScript"
+  },
+  {
+    "value": "Journey",
+    "label": "Journey"
+  },
+  {
+    "value": "Karaoke",
+    "label": "Karaoke"
+  },
+  {
+    "value": "Kinematics",
+    "label": "Kinematics"
+  },
+  {
+    "value": "Law Enforcement",
+    "label": "Law Enforcement"
+  },
+  {
+    "value": "Learning",
+    "label": "Learning"
+  },
+  {
+    "value": "Lecture",
+    "label": "Lecture"
+  },
+  {
+    "value": "Life Story",
+    "label": "Life Story"
+  },
+  {
+    "value": "Linear Algebra",
+    "label": "Linear Algebra"
+  },
+  {
+    "value": "Linux",
+    "label": "Linux"
+  },
+  {
+    "value": "List",
+    "label": "List"
+  },
+  {
+    "value": "Live",
+    "label": "Live"
+  },
+  {
+    "value": "Live Coding",
+    "label": "Live Coding"
+  },
+  {
+    "value": "Logic",
+    "label": "Logic"
+  },
+  {
+    "value": "Looksmaxxing",
+    "label": "Looksmaxxing"
+  },
+  {
+    "value": "Lore",
+    "label": "Lore"
+  },
+  {
+    "value": "Low-Level",
+    "label": "Low-Level"
+  },
+  {
+    "value": "Mechanics",
+    "label": "Mechanics"
+  },
+  {
+    "value": "Meditation",
+    "label": "Meditation"
+  },
+  {
+    "value": "Meme",
+    "label": "Meme"
+  },
+  {
+    "value": "Metal",
+    "label": "Metal"
+  },
+  {
+    "value": "Microcontrollers",
+    "label": "Microcontrollers"
+  },
+  {
+    "value": "Military",
+    "label": "Military"
+  },
+  {
+    "value": "Mistakes",
+    "label": "Mistakes"
+  },
+  {
+    "value": "Mobile",
+    "label": "Mobile"
+  },
+  {
+    "value": "Mobile Development",
+    "label": "Mobile Development"
+  },
+  {
+    "value": "Motivation",
+    "label": "Motivation"
+  },
+  {
+    "value": "Music",
+    "label": "Music"
+  },
+  {
+    "value": "Mystery",
+    "label": "Mystery"
+  },
+  {
+    "value": "Nature",
+    "label": "Nature"
+  },
+  {
+    "value": "Networking",
+    "label": "Networking"
+  },
+  {
+    "value": "News",
+    "label": "News"
+  },
+  {
+    "value": "Number Theory",
+    "label": "Number Theory"
+  },
+  {
+    "value": "OS",
+    "label": "OS"
+  },
+  {
+    "value": "Olympiad",
+    "label": "Olympiad"
+  },
+  {
+    "value": "Open Source",
+    "label": "Open Source"
+  },
+  {
+    "value": "Opinion",
+    "label": "Opinion"
+  },
+  {
+    "value": "Optimization",
+    "label": "Optimization"
+  },
+  {
+    "value": "Performance",
+    "label": "Performance"
+  },
+  {
+    "value": "Personal",
+    "label": "Personal"
+  },
+  {
+    "value": "Personality",
+    "label": "Personality"
+  },
+  {
+    "value": "Phenomena",
+    "label": "Phenomena"
+  },
+  {
+    "value": "Philosophy",
+    "label": "Philosophy"
+  },
+  {
+    "value": "Phonk",
+    "label": "Phonk"
+  },
+  {
+    "value": "Physics",
+    "label": "Physics"
+  },
+  {
+    "value": "Piano",
+    "label": "Piano"
+  },
+  {
+    "value": "Playlist",
+    "label": "Playlist"
+  },
+  {
+    "value": "Politics",
+    "label": "Politics"
+  },
+  {
+    "value": "Portfolio",
+    "label": "Portfolio"
+  },
+  {
+    "value": "Posture",
+    "label": "Posture"
+  },
+  {
+    "value": "Prank",
+    "label": "Prank"
+  },
+  {
+    "value": "Probability",
+    "label": "Probability"
+  },
+  {
+    "value": "Problem Solving",
+    "label": "Problem Solving"
+  },
+  {
+    "value": "Product Review",
+    "label": "Product Review"
+  },
+  {
+    "value": "Productivity",
+    "label": "Productivity"
+  },
+  {
+    "value": "Programming",
+    "label": "Programming"
+  },
+  {
+    "value": "Project",
+    "label": "Project"
+  },
+  {
+    "value": "Proof",
+    "label": "Proof"
+  },
+  {
+    "value": "Pseudoscience",
+    "label": "Pseudoscience"
+  },
+  {
+    "value": "Psychology",
+    "label": "Psychology"
+  },
+  {
+    "value": "Python",
+    "label": "Python"
+  },
+  {
+    "value": "Ranking",
+    "label": "Ranking"
+  },
+  {
+    "value": "React",
+    "label": "React"
+  },
+  {
+    "value": "Reaction",
+    "label": "Reaction"
+  },
+  {
+    "value": "Recreation",
+    "label": "Recreation"
+  },
+  {
+    "value": "Refactoring",
+    "label": "Refactoring"
+  },
+  {
+    "value": "Rehearsal",
+    "label": "Rehearsal"
+  },
+  {
+    "value": "Relativity",
+    "label": "Relativity"
+  },
+  {
+    "value": "Relaxation",
+    "label": "Relaxation"
+  },
+  {
+    "value": "Religion",
+    "label": "Religion"
+  },
+  {
+    "value": "Remix",
+    "label": "Remix"
+  },
+  {
+    "value": "Review",
+    "label": "Review"
+  },
+  {
+    "value": "Roadmap",
+    "label": "Roadmap"
+  },
+  {
+    "value": "Robotics",
+    "label": "Robotics"
+  },
+  {
+    "value": "Rock",
+    "label": "Rock"
+  },
+  {
+    "value": "Rotational Dynamics",
+    "label": "Rotational Dynamics"
+  },
+  {
+    "value": "Rust",
+    "label": "Rust"
+  },
+  {
+    "value": "SciFi",
+    "label": "SciFi"
+  },
+  {
+    "value": "Science",
+    "label": "Science"
+  },
+  {
+    "value": "Security",
+    "label": "Security"
+  },
+  {
+    "value": "Self-Help",
+    "label": "Self-Help"
+  },
+  {
+    "value": "Seminar",
+    "label": "Seminar"
+  },
+  {
+    "value": "Shorts",
+    "label": "Shorts"
+  },
+  {
+    "value": "Simulation",
+    "label": "Simulation"
+  },
+  {
+    "value": "Skill",
+    "label": "Skill"
+  },
+  {
+    "value": "Skills",
+    "label": "Skills"
+  },
+  {
+    "value": "Sleep",
+    "label": "Sleep"
+  },
+  {
+    "value": "Social",
+    "label": "Social"
+  },
+  {
+    "value": "Social Commentary",
+    "label": "Social Commentary"
+  },
+  {
+    "value": "Software",
+    "label": "Software"
+  },
+  {
+    "value": "Software Engineering",
+    "label": "Software Engineering"
+  },
+  {
+    "value": "Soundtrack",
+    "label": "Soundtrack"
+  },
+  {
+    "value": "Speculation",
+    "label": "Speculation"
+  },
+  {
+    "value": "Statistics",
+    "label": "Statistics"
+  },
+  {
+    "value": "Stereotypes",
+    "label": "Stereotypes"
+  },
+  {
+    "value": "Storytelling",
+    "label": "Storytelling"
+  },
+  {
+    "value": "Strategy",
+    "label": "Strategy"
+  },
+  {
+    "value": "Study",
+    "label": "Study"
+  },
+  {
+    "value": "Superheroes",
+    "label": "Superheroes"
+  },
+  {
+    "value": "Supernatural",
+    "label": "Supernatural"
+  },
+  {
+    "value": "System Design",
+    "label": "System Design"
+  },
+  {
+    "value": "Talk",
+    "label": "Talk"
+  },
+  {
+    "value": "Tech",
+    "label": "Tech"
+  },
+  {
+    "value": "Technique",
+    "label": "Technique"
+  },
+  {
+    "value": "Technology",
+    "label": "Technology"
+  },
+  {
+    "value": "Testing",
+    "label": "Testing"
+  },
+  {
+    "value": "Theorem",
+    "label": "Theorem"
+  },
+  {
+    "value": "Thermodynamics",
+    "label": "Thermodynamics"
+  },
+  {
+    "value": "Tools",
+    "label": "Tools"
+  },
+  {
+    "value": "Tribute",
+    "label": "Tribute"
+  },
+  {
+    "value": "Trigonometry",
+    "label": "Trigonometry"
+  },
+  {
+    "value": "Tutorial",
+    "label": "Tutorial"
+  },
+  {
+    "value": "UI/UX",
+    "label": "UI/UX"
+  },
+  {
+    "value": "Update",
+    "label": "Update"
+  },
+  {
+    "value": "Urban Legend",
+    "label": "Urban Legend"
+  },
+  {
+    "value": "Visualisation",
+    "label": "Visualisation"
+  },
+  {
+    "value": "Vocal Cover",
+    "label": "Vocal Cover"
+  },
+  {
+    "value": "Web Development",
+    "label": "Web Development"
+  },
+  {
+    "value": "Windows",
+    "label": "Windows"
+  },
+  {
+    "value": "WordPress",
+    "label": "WordPress"
+  },
+  {
+    "value": "Workflow",
+    "label": "Workflow"
+  }
+]
