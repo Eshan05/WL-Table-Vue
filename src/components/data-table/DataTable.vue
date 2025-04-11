@@ -5,7 +5,7 @@ import type {
   SortingState,
   VisibilityState,
 } from '@tanstack/vue-table'
-import { VideoMetadata } from '@/types'
+import type { VideoMetadata } from '@/types'
 
 import { valueUpdater } from '@/lib/utils'
 import {
@@ -33,7 +33,7 @@ import DataTableToolbar from './DataTableToolbar.vue'
 interface DataTableProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   columns: ColumnDef<VideoMetadata, any>[]
-  data: Task[]
+  data: VideoMetadata[]
 }
 const props = defineProps<DataTableProps>()
 

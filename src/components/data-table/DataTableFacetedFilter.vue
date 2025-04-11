@@ -110,7 +110,8 @@ function handleSelect(optionValue: string) {
       </Button>
     </PopoverTrigger>
     <PopoverContent class="w-3xs p-0" align="start">
-      <Command :filter-function="(list, term) => list.filter(i => i.toLowerCase().includes(term.toLowerCase()))">
+      <Command
+        :filter-function="(list: string[], term: string) => list.filter((i: string) => i.toLowerCase().includes(term.toLowerCase()))">
         <CommandInput :placeholder="title" class="h-9" />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>

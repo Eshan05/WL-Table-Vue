@@ -1,30 +1,24 @@
-import { h, type Component } from 'vue' // Import h and Component
+import { h, type Component } from 'vue'
 import type { Column, ColumnDef } from '@tanstack/vue-table'
-import type { VideoMetadata } from '@/types' // Adjust the path
+import type { VideoMetadata } from '@/types'
 
-// --- Import necessary UI components ---
-import { Badge } from '@/components/ui/badge' // Assuming ShadCN-Vue setup
+import { Badge } from '@/components/ui/badge'
 import { Checkbox } from '@/components/ui/checkbox'
-// Assuming you have these components adapted from the React versions earlier
 import DataTableColumnHeader from './DataTableColumnHeader.vue'
 import DataTableRowActions from './DataTableRowActions.vue'
-// Import or define DataTableRowActions if you need it
-// import DataTableRowActions from './DataTableRowActions.vue'
 
 // --- Helper function to create YouTube links ---
 const createYoutubeLink = (videoId: string) => `https://www.youtube.com/watch?v=${videoId}`;
 const createChannelLink = (channelUrl: string) => {
-  // Basic check if it's a handle or legacy URL
   if (channelUrl && !channelUrl.startsWith('/channel/')) {
     return `https://www.youtube.com${channelUrl}`; // Assumes handle like /@Handle
   } else if (channelUrl) {
     return `https://www.youtube.com${channelUrl}`; // Assumes /channel/ID
   }
-  return '#'; // Fallback
+  return '#';
 }
 
 export const columns: ColumnDef<VideoMetadata>[] = [
-  // --- Selection Column (Generally useful, keep as is) ---
   {
     id: 'select',
     header: ({ table }) => h(Checkbox, {
@@ -35,13 +29,13 @@ export const columns: ColumnDef<VideoMetadata>[] = [
           : false,
       'onUpdate:checked': (value: boolean) => table.toggleAllPageRowsSelected(!!value),
       'aria-label': 'Select all',
-      'class': 'translate-y-[2px]', // Minor style adjustment often needed
+      'class': 'flex items-center justify-center mr-2',
     }),
     cell: ({ row }) => h(Checkbox, {
       'checked': row.getIsSelected(),
       'onUpdate:checked': (value: boolean) => row.toggleSelected(!!value),
       'aria-label': 'Select row',
-      'class': 'translate-y-[2px]',
+      'class': 'flex items-center justify-center mr-2',
     }),
     enableSorting: false,
     enableHiding: false,
@@ -75,27 +69,26 @@ export const columns: ColumnDef<VideoMetadata>[] = [
         href: createYoutubeLink(row.original.video_id),
         target: '_blank',
         rel: 'noopener noreferrer',
-        class: 'block max-w-md font-medium hover:underline', // Added link & styling
-        title: row.getValue('title'), // Full title on hover
+        class: 'block max-w-xs font-medium hover:underline line-clamp-3',
+        title: row.getValue('title'),
       },
-        // Display a shortened version or handle long titles
-        row.getValue('title') // For now display full title, can truncate later
+        row.getValue('title')
       )
     },
-    // Enable filtering on the title column
     filterFn: (row, id, value) => {
       return (row.getValue(id) as string).toLowerCase().includes(String(value).toLowerCase());
     },
+    enableSorting: true,
+    enableHiding: false,
   },
 
   // --- Length Column ---
   {
     accessorKey: 'length',
     header: ({ column }) => h(DataTableColumnHeader, { column: column as Column<unknown, unknown>, title: 'Length' }),
-    cell: ({ row }) => h('div', { class: 'w-20 text-right tabular-nums pr-2' }, row.getValue('length')), // Right align, tabular nums for time
-    enableSorting: true, // You might want to sort by length (needs custom sort function for time)
-    // Basic sorting will be alphabetical, for proper time sorting:
-    sortingFn: 'basic', // Replace with custom time sort if needed
+    cell: ({ row }) => h('div', { class: 'w-20 text-right tabular-nums pr-2 font-mono' }, row.getValue('length')),
+    enableSorting: true,
+    sortingFn: 'basic',
   },
 
   // --- Categories Column ---
@@ -103,65 +96,53 @@ export const columns: ColumnDef<VideoMetadata>[] = [
     accessorKey: 'categories',
     header: ({ column }) => h(DataTableColumnHeader, { column: column as Column<unknown, unknown>, title: 'Categories' }),
     cell: ({ row }) => {
-      const categories = row.getValue('categories') as string[] || []; // Handle potential undefined
+      const categories = row.getValue('categories') as string[] || [];
       if (!categories.length) return h('span', { class: 'text-muted-foreground' }, 'N/A');
-
-      // Render categories as badges
-      return h('div', { class: 'flex flex-wrap gap-1' },
+      return h('div', { class: 'flex flex-wrap gap-1.5' },
         categories.map(category => h(Badge, { variant: 'secondary' }, () => category))
       );
     },
-    // Enable filtering using the faceted filter component logic
     filterFn: (row, id, value) => {
       const rowValues = row.getValue(id) as string[] || [];
-      const filterValues = value as string[]; // Value from faceted filter is an array
-      if (!filterValues || filterValues.length === 0) return true; // No filter applied
-      // Check if any of the row's categories are included in the selected filter values
+      const filterValues = value as string[];
+      if (!filterValues || filterValues.length === 0) return true;
       return filterValues.some(filterVal => rowValues.includes(filterVal));
     },
-    enableSorting: false, // Sorting arrays is complex, usually disable
+    enableSorting: false,
   },
-
-  // --- Topics Column (Similar to Categories) ---
   {
     accessorKey: 'topics',
     header: ({ column }) => h(DataTableColumnHeader, { column: column as Column<unknown, unknown>, title: 'Topics' }),
     cell: ({ row }) => {
-      const topics = row.getValue('topics') as string[] || []; // Handle potential undefined
+      const topics = row.getValue('topics') as string[] || [];
       if (!topics.length) return h('span', { class: 'text-muted-foreground' }, 'N/A');
-
-      // Render topics as badges (maybe different variant)
-      return h('div', { class: 'flex flex-wrap gap-1' },
+      return h('div', { class: 'flex flex-wrap gap-1.5' },
         topics.map(topic => h(Badge, { variant: 'outline' }, () => topic))
       );
     },
-    // Enable filtering using the faceted filter component logic
     filterFn: (row, id, value) => {
       const rowValues = row.getValue(id) as string[] || [];
-      const filterValues = value as string[]; // Value from faceted filter is an array
-      if (!filterValues || filterValues.length === 0) return true; // No filter applied
-      // Check if any of the row's topics are included in the selected filter values
+      const filterValues = value as string[];
+      if (!filterValues || filterValues.length === 0) return true;
       return filterValues.some(filterVal => rowValues.includes(filterVal));
     },
-    enableSorting: false, // Sorting arrays is complex, usually disable
+    enableSorting: false,
   },
-
   // --- Channel Column ---
   {
     accessorKey: 'channel_url',
     header: ({ column }) => h(DataTableColumnHeader, { column: column as Column<unknown, unknown>, title: 'Channel' }),
     cell: ({ row }) => {
       const url = row.getValue('channel_url') as string;
-      // Attempt to extract a readable name from the URL (@handle or last part)
       const potentialName = url ? url.substring(url.lastIndexOf('/') + 1) : 'Unknown Channel';
-      const displayName = potentialName.startsWith('@') ? potentialName : potentialName; // Use handle if present
+      const displayName = potentialName.startsWith('@') ? potentialName : potentialName;
 
       return h('a', {
         href: createChannelLink(url),
         target: '_blank',
         rel: 'noopener noreferrer',
-        class: 'text-blue-600 hover:underline truncate block max-w-[150px]', // Link style + truncate
-        title: displayName, // Show name on hover
+        class: 'text-blue-600 hover:underline truncate block max-w-[150px]',
+        title: displayName,
       }, displayName)
     },
     enableSorting: true,

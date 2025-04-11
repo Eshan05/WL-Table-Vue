@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Row } from '@tanstack/vue-table'
-import { VideoMetadata } from '@/types'
+import type { VideoMetadata } from '@/types'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,

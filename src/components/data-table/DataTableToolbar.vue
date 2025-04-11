@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { Table } from '@tanstack/vue-table'
-import { VideoMetadata } from '@/types'
+import type { VideoMetadata } from '@/types'
 import { Button } from '@/components/ui/button'
 
 import { Input } from '@/components/ui/input'
