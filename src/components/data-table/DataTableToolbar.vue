@@ -22,8 +22,8 @@ const props = defineProps<DataTableToolbarProps>()
 const isFiltered = computed(() => props.table.getState().columnFilters.length > 0)
 </script>
 <template>
-  <div class="flex items-center justify-between">
-    <div class="flex flex-1 items-center space-x-2">
+  <div class="flex items-center justify-between gap- 4">
+    <div class="flex flex-1 items-center space-x-2 flex-wrap">
       <Input
         placeholder="Filter videos..."
         :model-value="(table.getColumn('title')?.getFilterValue() as string) ?? ''"

@@ -28,7 +28,7 @@ function separateTitle(title: string) {
     return {
       title: match[1].trim(),
       channel: match[2].trim(),
-      views: match[3].replace(",", ""), // Store views as plain number string
+      views: match[3].replace(",", ""),
       duration: match[4].trim(),
     };
   } else {
@@ -41,51 +41,6 @@ function separateTitle(title: string) {
   }
 }
 
-function separateTitle1(title: string) {
-  // First, remove the "ago" part and anything after it
-  const titleWithoutAgo = title.replace(/(\d+ (second|minute|hour|day|week|month|year)s? ago.*)/i, '').trim();
-
-  // Check if the title contains "by" to separate title and creator
-  if (titleWithoutAgo.includes(' by ')) {
-    const parts = titleWithoutAgo.split(' by ');
-    const videoTitle = parts[0].trim();
-    const creatorInfo = parts[1].trim();
-
-    // Further split creator info to get creator name, views, and duration
-    const creatorParts = creatorInfo.split(/(\d+,\d+|\d+) views/i); // Splits by views count
-    console.log(creatorParts)
-    const creatorName = creatorParts[0].trim();
-    const viewsAndDuration = creatorParts[1] ? creatorParts[1].trim() : '';
-
-    let views = '';
-    let duration = '';
-    console.log(viewsAndDuration)
-
-    if (viewsAndDuration) {
-      const viewsMatch = creatorInfo.match(/(\d+,\d+|\d+) views/i);
-      if (viewsMatch) {
-        views = viewsMatch[0];
-        const durationMatch = viewsAndDuration.replace(views, '').trim();
-        duration = durationMatch;
-      }
-    }
-
-    return {
-      videoTitle,
-      creatorName,
-      views,
-      duration,
-    };
-  } else {
-    // If "by" is not found, return the original title as videoTitle
-    return {
-      videoTitle: titleWithoutAgo,
-      creatorName: null,
-      views: null,
-      duration: null,
-    };
-  }
-}
 export const columns: ColumnDef<VideoMetadata>[] = [
   {
     id: 'select',

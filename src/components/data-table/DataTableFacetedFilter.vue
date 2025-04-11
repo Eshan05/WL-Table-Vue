@@ -1,5 +1,6 @@
 <script setup lang="ts" generic="TData, TValue">
-import { type Component, computed } from 'vue'
+import { type Component, computed, ref } from 'vue'
+import Fuse from 'fuse.js'
 import type { Column } from '@tanstack/vue-table'
 import { Check, PlusCircle } from 'lucide-vue-next'
 
@@ -35,6 +36,9 @@ interface DataTableFacetedFilterProps {
 }
 
 const props = defineProps<DataTableFacetedFilterProps>()
+const searchTerm = ref('')
+const OPTIONS_LIMIT_THRESHOLD = 50
+const INITIAL_DISPLAY_LIMIT = 25
 
 const selectedValues = computed(() => {
   const filterValue = props.column?.getFilterValue()
@@ -45,6 +49,23 @@ const selectedValues = computed(() => {
     return new Set([filterValue] as string[])
   }
   return new Set<string>()
+})
+
+const computedOptions = computed(() => {
+  const lowerSearchTerm = searchTerm.value.toLowerCase().trim()
+  const filtered = lowerSearchTerm
+    ? props.options.filter(option =>
+      option.label.toLowerCase().includes(lowerSearchTerm)
+    )
+    : props.options; // Show all if no search term
+
+  if (props.options.length > OPTIONS_LIMIT_THRESHOLD) {
+    if (lowerSearchTerm.length < 1) {
+      return filtered.slice(0, INITIAL_DISPLAY_LIMIT);
+    }
+  }
+
+  return filtered;
 })
 
 // const facets = computed(() => props.column?.getFacetedUniqueValues())
@@ -109,15 +130,16 @@ function handleSelect(optionValue: string) {
         </template>
       </Button>
     </PopoverTrigger>
+    <!-- End -->
     <PopoverContent class="w-3xs p-0" align="start">
-      <Command
-        :filter-function="(list: string[], term: string) => list.filter((i: string) => i.toLowerCase().includes(term.toLowerCase()))">
-        <CommandInput :placeholder="title" class="h-9" />
+      <Command>
+        <!-- :filter-function="(list: string[], term: string) => list.filter((i: string) => i.toLowerCase().includes(term.toLowerCase()))"> -->
+        <CommandInput :placeholder="title" class="h-9" v-model="searchTerm" />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup>
             <CommandItem
-              v-for="option in options"
+              v-for="option in computedOptions"
               class="py-1.5 px-3"
               :key="option.value"
               :value="option.label"
@@ -135,7 +157,7 @@ function handleSelect(optionValue: string) {
                 v-if="option.icon"
                 :is="option.icon"
                 class="mr-2 h-4 w-4 text-muted-foreground" />
-              <span>{{ option.label }}</span>
+              <span class="truncate">{{ option.label }}</span>
               <span
                 v-if="getOptionCount(option.value) > 0"
                 class="ml-auto flex h-4 w-4 items-center justify-center font-mono text-xs">
@@ -157,7 +179,7 @@ function handleSelect(optionValue: string) {
               <CommandItem
                 :value="'clear-filters'"
                 class="justify-center text-center"
-                @select="() => column?.setFilterValue(undefined)"> Clear filters </CommandItem>
+                @select="() => { column?.setFilterValue(undefined); searchTerm = '' }"> Clear filters </CommandItem>
             </CommandGroup>
           </template>
         </CommandList>
