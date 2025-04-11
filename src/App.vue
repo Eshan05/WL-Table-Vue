@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { columns } from './components/data-table/columns'
+import DataTable from './components/data-table'
 import { Button } from '@/components/ui/button'
 import { ModeToggle } from "@/components"
+import videos from './data/videos.json'
 </script>
 <template>
   <nav
@@ -8,6 +11,7 @@ import { ModeToggle } from "@/components"
     <ModeToggle class="ml-auto" />
   </nav>
   <main>
+    <DataTable :data="videos" :columns="columns" />
   </main>
 </template>
 <style scoped>
