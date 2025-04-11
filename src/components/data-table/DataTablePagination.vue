@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="TData">
 import type { Table } from '@tanstack/vue-table'
-import { computed } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
 import {
   ChevronLeft,
   ChevronRight,
@@ -34,6 +34,24 @@ const canPreviousPage = computed(() => props.table.getCanPreviousPage())
 const canNextPage = computed(() => props.table.getCanNextPage())
 const selectedRowCount = computed(() => props.table.getFilteredSelectedRowModel().rows.length)
 const totalRowCount = computed(() => props.table.getFilteredRowModel().rows.length)
+
+const handleKeyDown = (event: KeyboardEvent) => {
+  if (event.key === '[') {
+    if (canPreviousPage.value) {
+      props.table.previousPage();
+    }
+  } else if (event.key === ']') {
+    if (canNextPage.value) props.table.nextPage()
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeyDown);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeyDown);
+});
 
 </script>
 <template>
